@@ -1,0 +1,15 @@
+# Godot-specific ignores
+.import/
+export/
+*.import
+*.import.cfg
+*.import.res
+*.library
+*.bak
+*.~gen
+*.swp
+
+# Ignore generated files
+export.cfg
+.project.godot
+.project.godot.workspace
