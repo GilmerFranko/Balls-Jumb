@@ -1,4 +1,4 @@
-extends AnimatedSprite
+extends Sprite
 var direx = Vector2()
 var direccion
 var o
@@ -18,11 +18,11 @@ func _ready():
 func _input(event):
 	direccionn = get_global_mouse_position()
 
-	direccion = get_angle_to(Vector2(direccionn.x,direccionn.y))
+	direccion = get_angle_to(Vector2(direccionn.x - 50,direccionn.y - 50))
 	direccion = direccion
 	
-	rotate(direccion)
-	print(direccion)
+	#rotate(direccion)
+	#print(direccion)
 
 	
 	

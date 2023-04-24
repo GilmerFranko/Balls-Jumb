@@ -1,6 +1,6 @@
 extends KinematicBody2D
-export (int) var velocidad = 400
-var direccion
+export (int) var velocidad = 300
+var direccion = Vector2()
 var posision
 var a
 signal tiempo
@@ -9,20 +9,22 @@ func _ready():
 	posision = Vector2(0,0)
 	a=false
 	tiempo = false
-	if Input.is_action_just_pressed("click"):
+	direccion=get_global_mouse_position() - global_position
+	if Input.is_action_just_pressed("click_left"):
 		$Sale_Bala.start()
 		direccion=get_global_mouse_position() - global_position
 	
 
 func _physics_process(delta):
-
-	Disparar(delta)
-	
+		Disparar(delta)
 
 func Disparar(delta):
-	move_and_collide(direccion.normalized()*delta*velocidad)
+	move_and_collide(direccion.normalized()*velocidad*delta)
 	
-
+func start(pos, dir):
+	rotation = dir
+	position = pos
+	posision = Vector2().rotated(rotation)
 
 	
 
