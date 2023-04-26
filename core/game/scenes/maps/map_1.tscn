@@ -1,24 +1,31 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://bogipbyt5xn32"]
 
-[ext_resource path="res://core/game/scenes/ball/ball.tscn" type="PackedScene" id=1]
+[ext_resource type="PackedScene" uid="uid://xipw1h2unbu1" path="res://core/game/scenes/ball/ball.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://yrbm3x7m1gt1" path="res://core/game/scenes/cannon/cannon.tscn" id="2"]
+[ext_resource type="Script" path="res://core/game/scenes/maps/map_1.gd" id="3"]
 
-[sub_resource type="LineShape2D" id=1]
-normal = Vector2( -0.274721, -0.961524 )
+[sub_resource type="WorldBoundaryShape2D" id="1"]
+normal = Vector2(-0.274721, -0.961524)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("3")
 
-[node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 8, -176 )
+[node name="ball" parent="." instance=ExtResource("1")]
+position = Vector2(-427, -45)
+freeze = true
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2( 88, 368 )
+position = Vector2(88, 368)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
-position = Vector2( -56, 84 )
-shape = SubResource( 1 )
+position = Vector2(-56, 84)
+shape = SubResource("1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2( 2, 2 )
+position = Vector2(-206, 72)
+zoom = Vector2(0.8, 0.8)
+
+[node name="cannon" parent="." instance=ExtResource("2")]
+position = Vector2(-428, 269)

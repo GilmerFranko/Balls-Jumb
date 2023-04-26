@@ -1,4 +1,4 @@
-extends Sprite
+extends Sprite2D
 var direx = Vector2()
 var direccion
 var o
@@ -14,16 +14,6 @@ func _ready():
 	direccionn = position
 	direccion = position
 
-# warning-ignore:unused_argument
-func _input(event):
-	direccionn = get_global_mouse_position()
 
-	direccion = get_angle_to(Vector2(direccionn.x - 50,direccionn.y - 50))
-	direccion = direccion
-	
-	#rotate(direccion)
-	#print(direccion)
-
-	
 	
 	

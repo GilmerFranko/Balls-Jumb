@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://yrbm3x7m1gt1"]
+
+[ext_resource type="Script" path="res://core/game/scenes/cannon/cannon.gd" id="1"]
+[ext_resource type="Script" path="res://core/game/scenes/cannon/spr_cannon.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://cmnr7d5s2c215" path="res://core/game/assets/cannon/img_cannon.png" id="3"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 112.567
+
+[node name="cannon" type="Node2D" groups=["player"]]
+position = Vector2(0.454767, -0.804463)
+script = ExtResource("1")
+
+[node name="Spr_Tank" type="Sprite2D" parent="."]
+texture = ExtResource("3")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Spr_Cañon" type="Sprite2D" parent="."]
+texture = ExtResource("3")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+script = ExtResource("2")
+
+[node name="Posision" type="Marker2D" parent="Spr_Cañon"]
+position = Vector2(-17.4548, -17.1955)
+
+[node name="vision" type="Area2D" parent="."]
+
+[node name="colision" type="CollisionShape2D" parent="vision"]
+shape = SubResource("1")
+
+[node name="canshoot" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="fps" type="TextEdit" parent="."]
+text = "1"
+
+[connection signal="timeout" from="canshoot" to="." method="_on_canshoot_timeout"]

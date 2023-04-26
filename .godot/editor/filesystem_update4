@@ -1,0 +1,8 @@
+res://core/game/scenes/maps/map_1.tscn
+res://core/game/scenes/ball/ball.gd
+res://core/game/scenes/cannon/spr_cannon.gd
+res://core/game/scenes/ball/ball.tscn
+res://core/game/scenes/cannon/cannon.tscn
+res://core/game/scenes/cannon/cannon.gd
+res://core/game/scenes/cannon/Bala.gd
+res://core/game/scenes/cannon/Bala.tscn
